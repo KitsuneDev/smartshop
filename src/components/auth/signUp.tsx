@@ -29,7 +29,7 @@ export function SignUp() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
+  //-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
