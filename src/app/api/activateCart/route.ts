@@ -10,7 +10,7 @@ export async function GET(
         data: {
             id: '679e84dd96e2d39d563e0f76',
             cartNumber: 1,
-            Products: {
+            products: {
                 set: []
             }
 

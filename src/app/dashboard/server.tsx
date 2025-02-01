@@ -14,13 +14,13 @@ export async function getUserCurrentCart() {
       id: session.user.id,
     },
     include: {
-      Carts: {
+      carts: {
         include: {},
       },
     },
   });
 
-  return userDb?.Carts;
+  return userDb?.carts;
 }
 
 export async function setUserCurrentCart(cartId: string) {
@@ -35,7 +35,7 @@ export async function setUserCurrentCart(cartId: string) {
         id: session.user.id,
       },
       data: {
-        Carts: {
+        carts: {
           connect: {
             id: cartId,
           },
@@ -48,7 +48,7 @@ export async function setUserCurrentCart(cartId: string) {
         id: session.user.id,
       },
       data: {
-        Carts: {
+        carts: {
           disconnect: true,
         },
       },

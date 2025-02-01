@@ -30,7 +30,7 @@ type ProductInCart {
 model Carts {
   id           String          @id @default(auto()) @map("_id") @db.ObjectId
   cartNumber   Int
-  Products     ProductInCart[]
+  products     ProductInCart[]
   usedBy       User?           @relation(fields: [usedByUserId], references: [id])
   usedByUserId String?         @unique
 }
@@ -46,7 +46,7 @@ model User {
   sessions      Session[]
   accounts      Account[]
   passkeys      Passkey[]
-  Carts         Carts?
+  carts         Carts?
 
   @@unique([email])
   @@map("user")

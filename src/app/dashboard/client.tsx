@@ -34,7 +34,7 @@ export function TableDemo(
         </TableRow>
       </TableHeader>
       <TableBody>
-        {cart.Products.map((product) => (
+        {cart.products.map((product) => (
           <TableRow key={product.id}>
             <TableCell className="font-medium">{product.quantity}</TableCell>
             <TableCell>{product.description}</TableCell>
@@ -46,10 +46,9 @@ export function TableDemo(
         <TableRow>
           <TableCell colSpan={3}>Total</TableCell>
           <TableCell className="text-right">
-            {cart.Products.map((x) => x.price * x.quantity).reduce(
-              (partialSum, a) => partialSum + a,
-              0
-            )}
+            {cart.products
+              .map((x) => x.price * x.quantity)
+              .reduce((partialSum, a) => partialSum + a, 0)}
           </TableCell>
         </TableRow>
       </TableFooter>

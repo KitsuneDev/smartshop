@@ -29,14 +29,14 @@ export async function GET(
     }
 
     // If already in cart, increment quantity
-    const existingProduct = cart.Products.find(x => x.id === query)
+    const existingProduct = cart.products.find(x => x.id === query)
     if (existingProduct) {
         await database.carts.update({
             where: {
                 id: cart.id
             },
             data: {
-                Products: {
+                products: {
                     updateMany: {
                         where: {
                             id: query
@@ -54,7 +54,7 @@ export async function GET(
                 id: cart.id
             },
             data: {
-                Products: {
+                products: {
                     push: {
                         id: query,
                         description: product.description,
