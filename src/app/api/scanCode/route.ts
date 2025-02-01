@@ -6,7 +6,6 @@ export const dynamic = 'force-dynamic'
 
 export async function GET(
     req: NextRequest,
-    res: NextResponse
 ) {
     const searchParams = req.nextUrl.searchParams
     const query = searchParams.get('id')

@@ -5,8 +5,6 @@ import { NextRequest, NextResponse } from "next/server"
 export const dynamic = 'force-dynamic'
 
 export async function GET(
-    req: NextRequest,
-    res: NextResponse
 ) {
     await database.carts.create({
         data: {
