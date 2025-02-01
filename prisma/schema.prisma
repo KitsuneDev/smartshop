@@ -14,18 +14,25 @@ datasource db {
 }
 
 model Products {
-  id          String   @id @default(cuid()) @map("_id") @db.ObjectId
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
   barcodes    String[]
   description String
   price       Float
 }
 
+type ProductInCart {
+  id          String
+  description String
+  price       Float
+  quantity    Int
+}
+
 model Carts {
-  id           String   @id @default(cuid()) @map("_id") @db.ObjectId
+  id           String          @id @default(auto()) @map("_id") @db.ObjectId
   cartNumber   Int
-  Products     String[]
-  usedBy       User     @relation(fields: [usedByUserId], references: [id])
-  usedByUserId String
+  Products     ProductInCart[]
+  usedBy       User?           @relation(fields: [usedByUserId], references: [id])
+  usedByUserId String?         @unique
 }
 
 model User {
@@ -39,7 +46,7 @@ model User {
   sessions      Session[]
   accounts      Account[]
   passkeys      Passkey[]
-  Carts         Carts[]
+  Carts         Carts?
 
   @@unique([email])
   @@map("user")
