@@ -65,3 +65,19 @@ export async function getCart(cartId: string) {
   });
   return result;
 }
+
+export async function checkout(cartId: string) {
+  return await database.carts.update({
+    where: {
+      id: cartId,
+    },
+    data: {
+      products: {
+        set: [],
+      },
+      usedBy: {
+        disconnect: true,
+      },
+    },
+  });
+}
