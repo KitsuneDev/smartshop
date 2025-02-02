@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SmartShopr
 
-## Getting Started
+Autonomous shopping used to be expensive to implement, requiring countless hours and thousands of dollars in cameras and equipment setup.
 
-First, run the development server:
+We are changing that. With SmartShopr, your cart becomes the point of automation. By using non-expensive yet reliable sensors implemented directly in the cart, we detect whenever you put something in the cart, automatically adding it to your bill (which can be monitored live on your phone). After your cart goes over a physical line, we automatically checkout and bill your items, making it so you don’t have to stop anywhere.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Project Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## `backend`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The backend is a NextJS app that connects with the MongoDB Database.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Install the latest LTS NodeJS and **pnpm**
+* Use `pnpm install` to install all required dependencies.
+* Copy `.env.example` to `.env`, and change the values.
+* Use `pnpm generate` to generate the database bindings.
+* Use `pnpm dev` to start a local dev server.
 
-## Learn More
+## `cart-sensor`
 
-To learn more about Next.js, take a look at the following resources:
+This is a Python script that operates the cart sensor and sends data to the backend. **Make sure a webcam is connected.**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Install the dependencies in `requirements.txt`
+* Run the `main.py` file.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## TODO
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Change app to support multiple carts, selecting cart via NFC.
+* Implement Product Suggestion AI.
+* Switch from Polling to WebSockets.
