@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Table,
   TableBody,
@@ -61,11 +61,18 @@ function DashboardPage() {
   const cartQuery = useQuery({
     queryKey: ["cart", CART_ID],
     queryFn: async () => await getCart(CART_ID),
+    staleTime: 1000,
+    refetchInterval: 1000,
   });
 
-  setTimeout(() => {
-    cartQuery.refetch();
-  }, 5000);
+  /*useEffect(() => {
+    const updateList = setTimeout(() => {
+      cartQuery.refetch();
+      return () => {
+        clearTimeout(updateList);
+      };
+    }, 5000);
+  });*/
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-y-scroll">
       <main className="flex flex-col gap-8 row-start-2 items-center w-full ">
@@ -83,7 +90,7 @@ function DashboardPage() {
               className="w-full mt-10"
               onClick={() => {
                 checkout(CART_ID).then(
-                  () => (window.location = window.location)
+                  () => (window.location.href = window.location.href)
                 );
               }}
             >
