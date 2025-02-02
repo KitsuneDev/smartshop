@@ -4,6 +4,8 @@ Autonomous shopping used to be expensive to implement, requiring countless hours
 
 We are changing that. With SmartShopr, your cart becomes the point of automation. By using non-expensive yet reliable sensors implemented directly in the cart, we detect whenever you put something in the cart, automatically adding it to your bill (which can be monitored live on your phone). After your cart goes over a physical line, we automatically checkout and bill your items, making it so you don’t have to stop anywhere.
 
+**This is a demonstration for HackRU 25. It is not secure and only supports 1 cart. It was written in 24 hours.**
+
 # Project Setup
 
 ## `backend`
