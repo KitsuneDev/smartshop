@@ -9,20 +9,6 @@ export default function Footer() {
             <h3 className="text-xl font-semibold">SmartShopr</h3>
             <p className="text-sm">Revolutionizing the shopping experience</p>
           </div>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-blue-400">
-              <Facebook className="h-6 w-6" />
-            </a>
-            <a href="#" className="hover:text-blue-400">
-              <Twitter className="h-6 w-6" />
-            </a>
-            <a href="#" className="hover:text-blue-400">
-              <Instagram className="h-6 w-6" />
-            </a>
-            <a href="#" className="hover:text-blue-400">
-              <Linkedin className="h-6 w-6" />
-            </a>
-          </div>
         </div>
         <div className="mt-8 text-center text-sm">
           <p>
