@@ -12,6 +12,7 @@ We are changing that. With SmartShopr, your cart becomes the point of automation
 ## `backend`
 
 The backend is a NextJS app that connects with the MongoDB Database.
+**We strongly recommend using Terraform to deploy this**
 
 * Install the latest LTS NodeJS and **pnpm**
 * Use `pnpm install` to install all required dependencies.
