@@ -3,6 +3,9 @@ import { headers } from "next/headers";
 import SignIn from "@/components/auth/signIn";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { authClient } from "@/lib/auth/client";
+import { Sign } from "crypto";
+import SignOutButton from "@/components/auth/signOutButton";
 
 export default async function Home() {
   const session = await auth.api.getSession({ headers: await headers() });
@@ -11,11 +14,14 @@ export default async function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h2 className="text-center text-2xl">Welcome to SmartCart!</h2>
         {session ? (
-          <div>
+          <div className="flex flex-col gap-4 items-center">
             <p>Logged in as {session.user.email}</p>
-            <Button asChild>
-              <Link href="/dashboard">Continue</Link>
-            </Button>
+            <div className="flex gap-4 flex-row justify-evenly w-full">
+              <Button asChild>
+                <Link href="/dashboard">Continue</Link>
+              </Button>
+              <SignOutButton />
+            </div>
           </div>
         ) : (
           <SignIn />

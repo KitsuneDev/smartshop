@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
-export default function Header() {
+export default async function Header() {
+  var session = await auth.api.getSession({ headers: await headers() });
   return (
     <header className="bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -19,18 +22,32 @@ export default function Header() {
           >
             How It Works
           </Link>
-          <Link
-            href="/auth/sign-in"
-            className="text-gray-600 hover:text-blue-600"
-          >
-            Sign In
-          </Link>
-          <Link
-            href="/auth/sign-up"
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
-          >
-            Sign Up
-          </Link>
+          {session ? (
+            <>
+              <div className="inline">{session.user.name}</div>
+              <Link
+                href="/dashboard"
+                className="text-gray-600 hover:text-blue-600"
+              >
+                Start Shopping
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/auth/sign-in"
+                className="text-gray-600 hover:text-blue-600"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/auth/sign-up"
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </nav>
     </header>
