@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 
 export default async function Hero() {
-  var session = await auth.api.getSession({ headers: await headers() });
+  const session = await auth.api.getSession({ headers: await headers() });
   return (
     <section className="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-20">
       <div className="container mx-auto px-4 text-center">

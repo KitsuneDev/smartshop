@@ -186,7 +186,7 @@ export function SignUp() {
         <div className="flex justify-center w-full border-t py-4">
           <div className="text-center text-xs text-neutral-500">
             Don&apos;t have an account?{" "}
-            <Link href="/sign-in">
+            <Link href="/auth/sign-in">
               <div className="text-primary-500">Sign in</div>
             </Link>
           </div>

@@ -21,7 +21,7 @@ export default async function Header() {
           <ShoppingCart className="h-8 w-8 text-primary" />
           <span className="text-xl font-bold text-gray-800">SmartShopr</span>
         </Link>
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex space-x-4 items-center">
           <NavLinks session={session} />
         </div>
         <div className="md:hidden">
